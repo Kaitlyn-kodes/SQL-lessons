@@ -1,10 +1,7 @@
-<?php
-  require "header.php";
-?>
 
   <main>
-    <div class="wrapper-main">
-      <section class="section-default">
+    <div>
+      <section >
         <h1>Sign Up!</h1>
             <form action="includes/signup.inc.php" method="post">
                 <input type="text" name="uid" placeholder="Username">
@@ -20,6 +17,3 @@
     </div>
   </main>
 
-<?php 
-require "footer.php";
-?>

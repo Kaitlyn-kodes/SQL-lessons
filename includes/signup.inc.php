@@ -1,14 +1,19 @@
 <?php
-    include_once'dbh.inc.php';
+if (isset($_POST['signup-submit'])){
 
-    $first = $_POST['first'];
-    $last = $_POST['last'];
-    $email = $_POST['email'];
-    $uid = $_POST['uid'];
-    $pwd = $_POST['pwd'];
+    require 'dbh.inc.php';
+    $username = $_POST['uid'];
+    $email = $_POST['mail'];
+    $password = $_POST['pwd'];
+    $passwordRepeat = $_POST['pwd-repeat'];
 
+    if(empty($username) || empty($username) || empty($username) || empty($username)){
+        header("Location: ../signup.php?error=emptyfields&uid=".$username."&mail=".$email);
+        exit();
+    }
+    else if (){
+        header("Location: ../signup.php?error=invalidmail&uid=".$username);
+        exit();
+    }
+}
 
-$sql = "INSERT INTO users (user_id, user_first, user_last, user_email, user_uid, user_pwd) VALUES ('Null','$first','$last','$email','$uid','$pwd');";
-mysqli_query($conn, $sql);
-
-header("Location: ../index.php?signup=success");
