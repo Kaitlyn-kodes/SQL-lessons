@@ -12,7 +12,7 @@ if (isset($_POST['signup-submit'])){
         header("Location: ../signup.php?error=emptyfields&uid=".$username."&mail=".$email);
         exit();
     }
-    else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/,"$username)){
+    else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)){
         header("Location: ../signup.php?error=invalidmailuid");
         exit();
     }
@@ -20,22 +20,14 @@ if (isset($_POST['signup-submit'])){
         header("Location: ../signup.php?error=invalidmail&uid=".$username);
         exit();
     }
-    else if (!preg_match("/^[a-zA-Z0-9]*$/,"$username)){
+    else if (!preg_match("/^[a-zA-Z0-9]*$/",$username)){
         header("Location: ../signup.php?error=invaliduid&mail=".$email);
         exit();
     }
     else if ($passwrod !== $passwordRepeat){
         header("Location: ../signup.php?error=passwordcheckuid=".$username."&mail=".$email);
         exit();
-    }
-    else {
-
-    $sql = "SELECT uidusers FROM users WHERE uidusers=?";
-    $stmt = mysqli_stat_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)){
-        header("Location: ../signup.php?error=sqlerror");
-        exit();
-    }
+    }    
     else {
         mysqli_stmt_bind_param($stmt, "s", $username);
         mysqli_stmt_execute($stmt);
@@ -46,6 +38,14 @@ if (isset($_POST['signup-submit'])){
         exit();
         }
     }    
+    
+}
+
+   
+
+   
+
+    
     else {
 
         $sql = "INSERT INTO users (uidUsers, emailUsers, pwdUsers) VALUES (?, ?, ?)";
