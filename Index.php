@@ -7,10 +7,10 @@
       <section>
         <?php
           if (isset($_SESSION['userId'])) {
-            echo "<p>You are loogged in!</p>";
+            echo '<p>You are loogged in!</p>';
           }
           else {
-            echo "<p>You are loogged out!</p>";
+            echo '<p>You are loogged out!</p>';
           }
         ?>       
     </section>
