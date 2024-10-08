@@ -5,8 +5,14 @@
   <main>
     <div >
       <section>
-        <p class="login-status">You are loogged out!</p>
-        <p class="login-status">You are loogged in!</p>
+        <?php
+          if (isset($_SESSION['userId'])) {
+            echo "<p>You are loogged in!</p>";
+          }
+          else {
+            echo "<p>You are loogged out!</p>";
+          }
+        ?>       
     </section>
     </div>
   </main>
