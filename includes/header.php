@@ -1,5 +1,6 @@
 <?php
   session_start();
+  require "dbh.inc.php";
 ?>
 <!doctype html>
 <html lang="en">
@@ -61,8 +62,7 @@
 
     <?php
 
-    $_SESSION['username'] = "Kaitlyn29 ";
-    echo $_SESSION['username'];
+
 //this means that if the session is in php and on the header code, then the $_SESSION "isset".
     if(!isset($_SESSION['username'])){
 
@@ -72,7 +72,7 @@
     }
  echo "<br>";
 
-    $sql = "SELECT * FROM usersfull;";
+    $sql = "SELECT * FROM users;";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
 
@@ -84,5 +84,3 @@
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
-</html>

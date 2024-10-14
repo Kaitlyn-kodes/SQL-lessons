@@ -1,7 +1,6 @@
-
-
-
-
+<?php
+  include "includes/header.php";
+?>
   <main>
     <div>
       <section >
@@ -28,7 +27,7 @@
           }
         }
         else if ($_GET['signup'] == "success") {
-          echo '<p>Signup successfull!</p>'
+          echo '<p>Signup successfull!</p>';
         }
         ?>
             <form action="includes/signup.inc.php" method="post">
