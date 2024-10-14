@@ -3,10 +3,16 @@
 ?>
 
   <main>
-    <div class="wrapper-main">
-      <section class="section-default">
-        <p class="login-status">You are loogged out!</p>
-        <p class="login-status">You are loogged in!</p>
+    <div >
+      <section>
+        <?php
+          if (isset($_SESSION['userId'])) {
+            echo '<p>You are loogged in!</p>';
+          }
+          else {
+            echo '<p>You are loogged out!</p>';
+          }
+        ?>       
     </section>
     </div>
   </main>
